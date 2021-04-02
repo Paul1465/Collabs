@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div id="app"></div>
+{% endblock %}
+
+{% block javascript %}
+
+{{parent()}}
+
+{{ encore_entry_scrip_tags('products') }}
+
+{% endblock %}
+{% block stylesheets %}
+
+{{parent()}}
+
+{{ encore_entry_link_tags('products') }}
+
+{% endblock %}

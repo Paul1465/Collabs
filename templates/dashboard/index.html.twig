@@ -1,0 +1,19 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+{% block body %}
+
+   {% for message in app.flashes('success') %}
+            <div class="alert alert-success text-center">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div id="app"></div>
+        
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('products') }}
+{% endblock %}
