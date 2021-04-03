@@ -12,7 +12,7 @@
        onSubmit: function (e){
          console.log(e.target);
          let formData = new FormData(e.target)
-         axios.post('/dashboard/storepost', formData)
+         axios.post('/dashboard/storePost', formData)
          .then((response) => {
            console.log(response)
          })

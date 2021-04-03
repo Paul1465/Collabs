@@ -19,7 +19,7 @@ class UserInfoType extends AbstractType
             ->add('picture')
             ->add('introduction')
             ->add('description')
-           
+            ->add('slug')
             ->add('save', SubmitType::class)
         ;
     }
