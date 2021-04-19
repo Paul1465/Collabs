@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\UserInfo;
+use App\Form\UserFormType;
 use App\Form\UserInfoType;
 use App\Security\LoginFormAuthenticator;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +22,7 @@ class UserInfoController extends AbstractController
 
     public function renderForm() : Response
     {
-        $form = $this->createForm(UserInfoType::class);
+        $form = $this->createForm(UserFormType::class);
 
         $view = $this->renderView('user_info/form.html.twig', [
             'form' => $form->createView(),
@@ -36,13 +38,12 @@ class UserInfoController extends AbstractController
      */
     public function storePost(Request $request) : Response
     {
-        $newForm = new UserInfo();
-        $form = $this->createForm(UserInfoType::class, $newForm);
+        $newForm = $this->getUser();
+        $form = $this->createForm(UserFormType::class, $newForm);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-            return $this->json($form);
-         
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($newForm);
             $entityManager->flush();
@@ -52,7 +53,8 @@ class UserInfoController extends AbstractController
                 "Mis à jour"
             );
         }
-
+        return $this->json($newForm);
+       
     }
     /**
      * @Route("/dashboard", name="user_info", methods={"GET", "POST"})
