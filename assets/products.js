@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueSidebarMenu from './index'
+import VueSimpleAlert from "vue-simple-alert";
+
+
 
 import Installation from './components/Installation.vue'
 import BasicUsage from './components/BasicUsage.vue'
@@ -12,6 +15,7 @@ import Styling from './components/Styling.vue'
 
 
 Vue.use(VueRouter)
+Vue.use(VueSimpleAlert);
 Vue.use(VueSidebarMenu)
 
 const router = new VueRouter({
