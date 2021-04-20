@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap';
 import './bootstrap.bundle.min.js';
 import './dashboard';
+import 'animate.css';
 
 
 

@@ -19,7 +19,11 @@ class UserFormType extends AbstractType
             ->add('introduction')
             ->add('description')
             ->add('slug')
-            ->add('save', SubmitType::class)
+            ->add('save', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary mt-3'
+                ]
+            ])
         ;
     }
 
