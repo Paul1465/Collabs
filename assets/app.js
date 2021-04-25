@@ -10,6 +10,8 @@
 
 import './styles/app.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'material-icons/iconfont/material-icons.css';
+
 
 // start the Stimulus application
 import './bootstrap';

@@ -8,11 +8,6 @@
 <script> 
   import axios from 'axios'
   export default {
-    data(){
-      return {
-        formValid: false,
-      }
-    },
     methods: {
       onSubmit: function (e){
         console.log(e.target);
@@ -33,6 +28,6 @@
       let {data} = await axios.get('/dashboard/postform')
       console.log(data)
       this.$refs.form.innerHTML = data.form
-    }
+    },
   }
 </script>
