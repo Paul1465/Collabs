@@ -16,7 +16,6 @@ import 'material-icons/iconfont/material-icons.css';
 // start the Stimulus application
 import './bootstrap';
 import './bootstrap.bundle.min.js';
-import './dashboard';
 import 'animate.css';
 
 

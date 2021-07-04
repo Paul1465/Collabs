@@ -1,68 +1,83 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Collabs{% endblock %}
-
-{% block body %}
-<div id="app"></div>
-
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-12">
-            <h1 class="text-left fw-bold">Articles Populaires</h1>
-            </div>
-            <div class="col-4 mt-5">
-            <img src="http://placehold.it/500x300" class="img-fluid" alt="">
-            </div>
-            <div class="col-8 mt-5">
-                <h1 class="h2 text-left ms-4  mb-3">Titre</h1>
-                <p class="text-left ms-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque possimus harum molestiae delectus nesciunt quam, ipsa tempore libero architecto dolores quia, voluptatibus laboriosam dolorem, nostrum consectetur animi enim distinctio.
-                Vel reprehenderit numquam aut corrupti corporis animi neque necessitatibus facilis maxime doloremque, dolorum reiciendis quas expedita asperiores delectus quos odit, consequatur nesciunt quaerat voluptates doloribus et. Ullam harum iure atque.
-                </p>
-                <a href="#" class="btn btn-primary ms-4">Link</a>
-            </div>
-        </div>
-        <div class="container mt-5">
-                        <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col mt-5">
-                    <div class="card h-100">
-                    <img src="http://placehold.it/500x300" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                    </div>
-                </div>
-                <div class="col mt-5">
-                    <div class="card h-100">
-                    <img src="http://placehold.it/500x300" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                    </div>
-                </div>
-                <div class="col mt-5">
-                    <div class="card h-100">
-                    <img src="http://placehold.it/500x300" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>       
-</div> 
+{% block title %}Collabs
 {% endblock %}
 
+{% block body %}
 
+<section class="bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="text-left fw-bold mt-5 mb-5">
+					Articles Populaires</h1>
+			</div>
+			{% for i in 0..3 %}
+				{% set article_number = articles[i] %}
+				<div class="col-3 mb-5">
+					<div class="card mb-2" style="width: 16rem; height: 17rem;">
+						<img src="{{article_number.urlToImage}}" class="card-img-top" style="max-height: 8rem;" alt="...">
+						<div class="card-body">
+							<h5 class="card-title text-black-50 my-2">
+								{{article_number.author}}
+							</h5>
+							<p class="card-text fw-bold">{{article_number.title}}</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		</div>
+        </section>
+
+		<div class="col-4 mt-5">
+			<img src="http://placehold.it/500x300" class="img-fluid" alt="">
+		</div>
+		<div class="col-8 mt-5">
+			<h1 class="h2 text-left ms-4  mb-3">Titre</h1>
+			<p class="text-left ms-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque possimus harum molestiae delectus nesciunt quam, ipsa tempore libero architecto dolores quia, voluptatibus laboriosam dolorem, nostrum consectetur animi enim distinctio.
+									                Vel reprehenderit numquam aut corrupti corporis animi neque necessitatibus facilis maxime doloremque, dolorum reiciendis quas expedita asperiores delectus quos odit, consequatur nesciunt quaerat voluptates doloribus et. Ullam harum iure atque.
+			</p>
+			<a href="#" class="btn btn-primary ms-4">Link</a>
+		</div>
+	</div>
+	<div class="container mt-5">
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+			<div class="col mt-5">
+				<div class="card h-100">
+					<img src="http://placehold.it/500x300" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+			</div>
+			<div class="col mt-5">
+				<div class="card h-100">
+					<img src="http://placehold.it/500x300" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+			</div>
+			<div class="col mt-5">
+				<div class="card h-100">
+					<img src="http://placehold.it/500x300" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>{% endblock %}
